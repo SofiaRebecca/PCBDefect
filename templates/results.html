@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Defect Detection Results</title>
+</head>
+<body>
+    <h1>Defect Detection Analysis</h1>
+    
+    <h3>Processing Steps</h3>
+    <ol>
+        {% for step in steps %}
+            <li>{{ step }}</li>
+        {% endfor %}
+    </ol>
+
+    <h3>Processing Results</h3>
+    {% for img_path in image_paths %}
+        <div>
+            <h4>Processing Step - Image {{ loop.index }}:</h4>
+            <img src="{{ img_path }}" alt="Step Image" style="max-width: 100%; height: auto;">
+        </div>
+    {% endfor %}
+
+    <h3>Defect Report:</h3>
+    <ul>
+        {% for report in defect_report %}
+            <li>{{ report }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
