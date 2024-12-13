@@ -10,7 +10,7 @@ os.makedirs(RESULT_FOLDER, exist_ok=True)
 
 # Start MATLAB engine
 eng = matlab.engine.start_matlab()
-eng.addpath(r'C:\Users\sofia\OneDrive\Desktop\PCBApp', nargout=0)
+eng.addpath(r'D:\B-Tech{PC}\SEM-V\7-1-DIGITAL IMAGE PROCESSING\PCBDefect-main', nargout=0)
 
 @app.route('/')
 def index():
