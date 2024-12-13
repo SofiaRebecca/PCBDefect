@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Defect Detection Results</title>
+    <style>
+        body {
+            background-color: #FF073A; /* Neon red background */
+            color: white; /* White text for contrast */
+            font-family: Arial, sans-serif;
+        }
+
+        h1, h3 {
+            text-align: center;
+        }
+
+        h1 {
+            color: #FFFCFC; /* Light color for header */
+        }
+
+        ol, ul {
+            font-size: 18px;
+            margin: 0 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        .defect-info {
+            font-size: 16px;
+            margin: 10px 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Defect Detection Analysis</h1>
-    
+
     <h3>Processing Steps</h3>
     <ol>
         {% for step in steps %}
@@ -18,9 +54,16 @@
     {% for img_path in image_paths %}
         <div>
             <h4>Processing Step - Image {{ loop.index }}:</h4>
-            <img src="{{ img_path }}" alt="Step Image" style="max-width: 100%; height: auto;">
+            <img src="{{ img_path }}" alt="Step Image">
         </div>
     {% endfor %}
+
+    {% if histogram_image_path %}
+        <div>
+            <h4>Histogram of Defect Areas:</h4>
+            <img src="{{ histogram_image_path }}" alt="Histogram of Defect Areas">
+        </div>
+    {% endif %}
 
     <h3>Defect Report:</h3>
     <ul>
@@ -28,5 +71,11 @@
             <li>{{ report }}</li>
         {% endfor %}
     </ul>
+
+    {% if defect_status %}
+        <div class="defect-info">
+            <strong>Defect Status:</strong> {{ defect_status }}
+        </div>
+    {% endif %}
 </body>
 </html>
