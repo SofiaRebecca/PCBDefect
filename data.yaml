@@ -1,0 +1,4 @@
+train: ../organized_dataset/train/images
+val: ../organized_dataset/val/images
+nc: 6
+names: ["spurious_copper", "missing_hole", "mouse_bite", "open_circuit", "short", "spur"]
